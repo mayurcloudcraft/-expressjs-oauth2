@@ -3,6 +3,7 @@ const router = express.Router();
 
 const usersRouter = require('./users');
 const authRouter = require('./auth');
+const oauth2Router = require('./oauth2');
 const homeController = require('../controllers/home.controller');
 const authMiddleware = require('../middlewares/authMiddleware.controller');
 
@@ -15,5 +16,6 @@ router.use('/user', usersRouter);
 
 // Auth routes
 router.use('/auth', authRouter);
+router.use('/', oauth2Router);
 
 module.exports = router;

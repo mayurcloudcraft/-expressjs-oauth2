@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+  .container
+    h1 Authorise
+    p.lead
+      | User access your profile details?
+    p.lead(style='color:red') #{error}
+      form(role='form', action='/oauth/authorise', method='post')
+        input(type='hidden', id='client_id', name='client_id', value=client_id)
+        input(type='hidden', id='redirect_uri', name='redirect_uri', value=redirect_uri)
+        input(type='hidden', id='response_type', name='response_type', value='code')
+        button.btn.btn-primary(type='submit') Allow
+      &nbsp;
+  a.btn.btn-default(role='button', href='/') Cancel
